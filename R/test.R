@@ -4,10 +4,10 @@ D <- read.csv(file.choose(),header = TRUE)
 
 D1 <- 
 D %>%
-  filter(Е°╟Е÷÷=="Е▄≈Д╨╛Е╦┌"|Е°╟Е÷÷=="Д╦┼Ф╣╥Е╦┌")
+  filter(╣ьсР=="╠╠╬╘йп"|╣ьсР=="ио╨ёйп")
 g <- ggplot(data = D1)
 g + 
-  geom_col(mapping = aes(x = Е╙▓Д╫⌠, y = Click, fill = Г╩┬Г╚╞)) +
-  ggtitle("Е┤╞Х©╙Ф╞█Е⌠│Г┴▄") +
+  geom_col(mapping = aes(x = ц╫лЕ, y = Click, fill = жу╤к)) +
+  ggtitle("©╜╣од╦ф╥еф") +
   theme_classic()
     

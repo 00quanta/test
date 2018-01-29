@@ -9,7 +9,7 @@ ggplot(B,aes(class)) +
 
     geom_bar(aes(fill = drv),position="stack") 
 
-#脳脻脧貌潞脧虏垄
+#纵向合并
 # ID<-c(1,2,3)
 # name<-c("Jame","Kevin","Sunny")
 # student1<-data.frame(ID,name)
@@ -19,7 +19,7 @@ ggplot(B,aes(class)) +
 # total<-rbind(student1,student2)
 # rmtotal
  
-#露脿卤铆潞脧虏垄
+#多表合并
 # A1 <- read.csv(file.choose(),header = TRUE)
 # A2 <- read.csv(file.choose(),header = TRUE)
 # total<-rbind(A1,A2)
