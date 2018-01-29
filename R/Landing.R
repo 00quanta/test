@@ -26,5 +26,3 @@ by_city <- summarise(Landing3,
 final <- filter(by_city, landing >= 10)
 # 输出结果为.csv
 write.csv(final,file = "E:/OTV/xuefulan-Landing.csv")
-
-gsub('HDTC50', '科迈罗', utm_media)
