@@ -26,3 +26,7 @@ by_city <- summarise(Landing3,
 final <- filter(by_city, landing >= 10)
 # 输出结果为.csv
 write.csv(final,file = "E:/OTV/xuefulan-Landing.csv")
+
+
+a <- c("foo_5", "bar_7")
+a <- gsub(".*_", "", a)
