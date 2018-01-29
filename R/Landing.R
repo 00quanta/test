@@ -4,14 +4,19 @@ A1 <- read.csv(file.choose(),header = TRUE)
 total<-rbind(A1,A2)
 
 library('dplyr')
-# É¸Ñ¡º¬ÓÐHDTCµÄÊý¾Ý
+# ç­›é€‰å«æœ‰HDTCçš„æ•°æ®
 Landing <- filter(total, grepl('HDTC5', utm_media))
-fix()
-useful <- group_by(Landing, ÍøÕ¾Ãû³Æ, utm_source, ³ÇÊÐ, utm_media)
-# Í³¼ÆÒ»ÖÜ·Ö³ÇÊÐ×Ülanding
-by_city <- summarise(useful,
-                     landing = sum(·ÃÎÊÊý, na.rm = TRUE)
+
+Landing2 <- group_by(Landing, ç½‘ç«™åç§°, utm_source, åŸŽå¸‚, utm_media)
+
+Landing3 <- mutate(Landing2,
+                   ç´ æ = substr(utm_media, 30, 35) # ncharåœ¨è¿™ç§æƒ…å†µå¦‚ä½•è¿ç”¨
+                   # nchar('HS-201711478_INT324_20071024_HDTC50')                  
+)
+# ç»Ÿè®¡ä¸€å‘¨åˆ†åŸŽå¸‚æ€»landing
+by_city <- summarise(Landing3,
+                     landing = sum(è®¿é—®æ•°, na.rm = TRUE)
 )
 final <- filter(by_city, landing >= 10)
-# Êä³ö½á¹ûÎª.csv
+# è¾“å‡ºç»“æžœä¸º.csv
 write.csv(final,file = "E:/OTV/xuefulan-Landing.csv")
