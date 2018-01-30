@@ -24,7 +24,7 @@ Landing2 <- mutate(Landing,
     素材版本 = gsub('HDTC56', 'B', 素材版本),
     素材版本 = gsub('HDTC57', 'C', 素材版本)
     )
-Landing3 <- unite(Landing2, "端口", 网站名称, utm_medium, sep = "_")
+Landing3 <- unite(Landing2, "端口", 网站名称, utm_medium, sep = "_") # 为什么此段与Landing2结合substr会不同
 
 by_city <- Landing3 %>%
   group_by(utm_source,
@@ -42,3 +42,7 @@ by_city <- Landing3 %>%
   # arrange(素材版本)
 # 输出结果为.csv
 write.csv(by_city,file = "E:/OTV/angkewei-Landing.csv")
+
+
+a <- c("foo_5", "bar_7")
+a <- gsub(".*_", "", a)
