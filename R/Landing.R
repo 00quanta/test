@@ -14,11 +14,14 @@ Landing <- total %>%
          )
 Landing2 <- mutate(Landing,
     素材 = substr(utm_campaign, nchar(as.character(Landing$utm_campaign))-5, nchar(as.character(Landing$utm_campaign))),
+    # 根据编号区分素材版本
     素材版本 = gsub('HDTC55', 'A', 素材),
     素材版本 = gsub('HDTC56', 'B', 素材版本),
     素材版本 = gsub('HDTC57', 'C', 素材版本)
     )
-Landing3 <- unite(Landing2, "端口", 网站名称, utm_medium, sep = "_") # 为什么此段与Landing2结合substr会不同
+# 删除端口错误数据
+Landing3 <- unite(Landing2, "端口", 网站名称, utm_medium, sep = "_") 
+# ？为什么此段与Landing2结合得到的substr‘素材’会不同
 
 by_city <- Landing3 %>%
   group_by(utm_source,
