@@ -1,20 +1,14 @@
-# total_1 <- read.csv(file.choose(),header = TRUE)
-# for (i in 1:6){
-#   A[i] <- read.csv(file.choose(),header = TRUE)
-#   total_1 <- rbind(total, A[i])
-# }
+# 读取所需.csv文件
+files <- list.files(path = "E:/OTV/Landing/R-test/", pattern = '\\.csv')
+files <- paste("E:/OTV/Landing/R-test/", files, sep = "")
+tables <- lapply(files, read.csv, header = TRUE)
+combined.tables <- do.call(rbind, tables)
+# s <- sapply(combined.df, is.numeric)
+# colMeans(combined.df[s])
 
-# files <- dir("E:/OTV/Landing/别克昂科威-Landing/test")
-# for (i in files){
-#   tempcsv <- read.csv(i)
-# }
-
-A1 <- read.csv(file.choose(),header = TRUE)
-total <- rbind(A1, A2, A3, A4, A5, A6, A7)
 library('dplyr')
 library('tidyr')
 # 筛选含有HDTC的数据, 注意修改‘HDTC’所在字段
-
 Landing <- total %>%
   filter(grepl('HDTC5', utm_campaign)
          )
