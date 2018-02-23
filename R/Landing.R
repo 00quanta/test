@@ -1,13 +1,14 @@
+library('tidyr')
+library('dplyr')
+
 # 读取所需.csv文件
-files <- list.files(path = "E:/OTV/Landing/R-test/", pattern = '\\.csv')
-files <- paste("E:/OTV/Landing/R-test/", files, sep = "")
-tables <- lapply(files, read.csv, header = TRUE)
-combined.tables <- do.call(rbind, tables)
+files <- list.files(path = "E:/OTV/Landing/", pattern = '\\.csv')
+filez <- paste("E:/OTV/Landing", files, sep = "/")
+tables <- lapply(filez, read.csv, header = TRUE)
+total <- do.call(rbind, tables)
 # s <- sapply(combined.df, is.numeric)
 # colMeans(combined.df[s])
 
-library('dplyr')
-library('tidyr')
 # 筛选含有HDTC的数据, 注意修改‘HDTC’所在字段
 Landing <- total %>%
   filter(grepl('HDTC5', utm_campaign)
@@ -38,7 +39,7 @@ by_city <- Landing3 %>%
 #   filter(landing > 10) %>%
   # arrange(素材版本)
 # 输出结果为.csv
-write.csv(by_city,file = "E:/OTV/angkewei-Landing.csv")
+write.csv(by_city,file = "E:/OTV/Landing/昂科威Landing-2.5.csv")
 
 
 a <- c("foo_5", "bar_7")
