@@ -13,6 +13,7 @@ brew cask install lantern
 brew cask install spotify
 brew cask install weiyun
 brew cask install mactex
+brew cask install latexit
 brew cask install google-photos-backup-and-sync
 
 
